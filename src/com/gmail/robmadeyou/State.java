@@ -4,6 +4,7 @@ public class State {
 	/*
 	 * Available game states are:
 	 * MAIN_MENU
+	 * CREDITS
 	 * GAME
 	 * ASK
 	 */
@@ -11,6 +12,10 @@ public class State {
 	public static void stateDecider(){
 		if(state.equals("MAIN_MENU")){
 			StateMenu.onUpdate();
+		}else if(state.equals("GAME")){
+			
+		}else if(state.equals("CREDITS")){
+			StateCredits.onUpdate();
 		}
 	}
 }

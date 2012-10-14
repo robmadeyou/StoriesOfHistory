@@ -54,7 +54,8 @@ public class Main {
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);
 		
-
+		GL11.glEnable(GL11.GL_BLEND);
+        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		
 		while(!Display.isCloseRequested()){
 			if(!fontsLoaded){
@@ -92,10 +93,6 @@ public class Main {
 		drawLine();
 	}
 	public void drawLine(){
-		glBegin(GL_LINES);
-		glVertex2f(0, 455);
-		glVertex2f(Display.getWidth() , 455);
-		glEnd();
 	}
 	
 

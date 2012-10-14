@@ -41,7 +41,7 @@ public class Input {
 	}
 	public static void getCommand(){
 		if(Keyboard.getEventKeyState()){
-			if(Keyboard.isKeyDown(Keyboard.KEY_RETURN)){
+			if(Keyboard.isKeyDown(Keyboard.KEY_RETURN) && Main.command != ""){
 				Main.commandExecuted = Main.command;
 				Screen.chatCommand(Main.command);
 				Main.command = "";
