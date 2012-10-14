@@ -10,11 +10,13 @@ public class StateCredits {
 	public static void chat(){
 		if(!creditsIni){
 			Screen.chatBasic("Made by RobMadeYou and NeverLost");
-			Screen.chatBasic("+++ A massive thansk to Neverlost for helping me create the game");
-			Screen.chatBasic("+++ and helping me with some of the concepts. Couldn't have done it without you");
-			Screen.chatBasic("+++ buddy.");
-			Screen.chatBasic("+++ Thanks a million to Matylda, for awesome support. I love you <3");
-			Screen.chatBasic("+++ To Niamh. Herro :3");
+			Screen.chatBasic("+++ A massive thanks to Neverlost for helping me create the game");
+			Screen.chatBasic("+++ and helping me with some of the concepts. Couldn't have done it without you buddy.");
+			Screen.chatBasic("+++ Thanks to Cody and Lewiz for helping test the game out.");
+			Screen.chatBasic("++++ Thanks a million to Matylda, for awesome support.");
+			Screen.chatBasic("+++++ Dedicated to Niamh, thanks for existing. <3");
+			Screen.chatBasic("");
+			Screen.chatBasic("(Type \"back\" to go to Main Menu)");
 			creditsIni = true;
 		}
 	}

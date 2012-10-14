@@ -13,9 +13,11 @@ public class State {
 		if(state.equals("MAIN_MENU")){
 			StateMenu.onUpdate();
 		}else if(state.equals("GAME")){
-			
+			StateGame.onUpdate();
 		}else if(state.equals("CREDITS")){
 			StateCredits.onUpdate();
+		}else if(state.equals("ASK")){
+			StateAsk.onUpdate();
 		}
 	}
 }
