@@ -51,6 +51,7 @@ public class Screen {
 	public static void update(){
 		chatDisplay();
 		commandLine();
+		variableDraw();
 	}
 	public static void commandLine(){
 		Fonts.command.drawString(0, 460, " > "+ Main.command);
@@ -96,8 +97,6 @@ public class Screen {
 		Fonts.chat.drawString(0, 360, t3);
 		Fonts.color = c2;
 		Fonts.chat.drawString(0, 380, t2);
-		Fonts.color = c1;
-		Fonts.chat.drawString(0, 400, t1);
 	}
 	public static void chatUpdate(String text){
 		t21 = t20;
@@ -119,8 +118,7 @@ public class Screen {
 		t5 = t4;
 		t4 = t3;
 		t3 = t2;
-		t2 = t1;
-		t1 = text;
+		t2 = text;
 	}
 	
 	public static void chatCommand(String text){
@@ -128,5 +126,10 @@ public class Screen {
 	}
 	public static void chatBasic(String text){
 		chatUpdate(text);
+	}
+	static void variableDraw(){
+		Fonts.variables.drawString(0, 400, "Location: " + Game.location);
+		Game.money ++;
+		Fonts.variables.drawString(0, 415, "Money: " + Game.money + " coins");
 	}
 }

@@ -26,6 +26,9 @@ public class Fonts {
     //Used for the main chat box
     static UnicodeFont chat;
     
+    //Used for all the variables
+    static UnicodeFont variables;
+    
     
     //Colour initialization for chat strings
     public static java.awt.Color color = java.awt.Color.white;
@@ -37,6 +40,7 @@ public class Fonts {
     static void setUpFonts() {
     	commandFont();
     	textBox();
+    	variableList();
     }
     static void commandFont(){
         try {
@@ -55,6 +59,17 @@ public class Fonts {
         chat.addAsciiGlyphs();
     	try {
             chat.loadGlyphs();
+        } catch (SlickException e) {
+            e.printStackTrace();
+        }
+    }
+    static void variableList(){
+    	java.awt.Font awtFont = new java.awt.Font("Times Roman", 0,16);
+        variables = new UnicodeFont(awtFont);
+        variables.getEffects().add(new ColorEffect(java.awt.Color.RED));
+        variables.addAsciiGlyphs();
+    	try {
+            variables.loadGlyphs();
         } catch (SlickException e) {
             e.printStackTrace();
         }

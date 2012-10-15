@@ -25,6 +25,15 @@ public class Save {
 		StateGame.gender = (String) save.readObject();
 		StateGame.name = (String) save.readObject();
 		
+		Game.location = (String) save.readObject();
+		Game.money = (Integer) save.readObject();
+		
+		
+		
+		Game.firstTime = (Boolean) save.readObject();
+		//Player's level's are here
+		
+		
 		// Close the file.
 		save.close(); // This also closes saveFile.
 		}
@@ -47,12 +56,21 @@ public class Save {
 		// Create an ObjectOutputStream to put objects into save file.
 		ObjectOutputStream save = new ObjectOutputStream(saveFile);
 		
+		
 		// Now we do the save.
+		
 		save.writeObject(loaded);
 		save.writeObject(StateGame.firstTime);
 		save.writeObject(StateGame.gameState);
 		save.writeObject(StateGame.gender);
 		save.writeObject(StateGame.name);
+		
+		save.writeObject(Game.location);
+		save.writeObject(Game.money);
+		
+		
+		save.writeObject(Game.firstTime);
+		//Player levels are under here
 		
 		// Close the file.
 		save.close(); // This also closes saveFile.

@@ -11,7 +11,7 @@ public class StateGame {
 	 * NEW_GAME
 	 * GENDER_SELECT
 	 * NAME_SELECT
-	 * HISTORY_SELECT
+	 * GAME
 	 */
 	static String gameState = "LOAD_GAME";
 	
@@ -20,34 +20,36 @@ public class StateGame {
 	static boolean isPromtedToLoadGame = false;
 	static boolean isShownInfoAboutGame = false;
 	static boolean isGenderAsked = false;
+	static boolean isNameAsked = false;
 	
-	
+	static boolean nameGiven = false;
+	static boolean nameGiven2 = false;
 	
 	//IMPORTANT GAME VARIABLES! IMPORTANTES!
 	//Only male or female.. Sorry lewiz
 	static String gender = "";
 	//Select name... Won't be used for much really...
 	static String name = "";
-	/*
-	 * Select history. 
-	 * 0 = Poor family, hardly surviving on anything
-	 * 1 = Rich family get anything you want
-	 * 2 = Moderate family, strict but caring
-	 * 3 = Moderate family don't give a crap about kid
-	 */
-	static int history = 0;
+	
+	
 	public static void onUpdate(){
 		stateDecider();
 	}
 	
+	
+	
+	
 	public static void stateDecider(){
 		if(gameState.equals("LOAD_GAME")){
 			loadGame();
-			
 		}else if(gameState.equals("NEW_GAME")){
 			newGame();
 		}else if(gameState.equals("GENDER_SELECT")){
-			
+			genderSelect();
+		}else if(gameState.equals("NAME_SELECT")){
+			nameSelect();
+		}else if(gameState.equals("GAME")){
+			Game.onUpdate();
 		}
 	}
 	static void loadGame(){
@@ -91,13 +93,38 @@ public class StateGame {
 	}
 	static void genderSelect(){
 		if(!isGenderAsked){
-			Screen.chatBasic("First of all, answer one question:");
-			Screen.chatBasic("Are you MALE or FEMALE");
+			Screen.chatBasic("First of all, answer some questions:");
+			Screen.chatBasic("Are you MALE or FEMALE?");
 			Screen.chatBasic("Answer with \"MALE\" or \"FEMALE\"");
-			isGenderAsked = false;
+			isGenderAsked = true;
 		}
 		if(Input.isCommand("male")){
-			
+			gender = "MALE";
+			gameState = "NAME_SELECT";
+			isGenderAsked = false;
+		}else if(Input.isCommand("female")){
+			gender = "FEMALE";
+			gameState = "NAME_SELECT";
+			isGenderAsked = false;
+		}else if(!Input.isCommand("female") && !Input.isCommand("male") && !Input.isCommand("")){
+			Screen.chatBasic("Sorry, unknown gender. Try again");
+			Main.commandExecuted = "";
+		}
+	}
+	static void nameSelect(){
+		if(!isNameAsked){
+			Screen.chatBasic("Second, What is your name?");
+			isNameAsked = true;
+		}
+		if(!Input.isCommand("")){
+			name = Main.commandExecuted;
+			nameGiven = true;
+		}
+		if(nameGiven && !nameGiven2){
+			Screen.chatBasic("Very well " + name + ". Let us begin with the game.");
+			Screen.chatBasic("I hope you are as excited as I am!");
+			gameState = "GAME";
+			nameGiven2 = true;
 		}
 	}
 }
