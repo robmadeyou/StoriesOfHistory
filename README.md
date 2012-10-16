@@ -14,3 +14,10 @@ ToDo list:
 * Create job(s)
 
 
+
+
+<b>==========</b>Future update ideas!<b>==========</b>
+
+* Create Cats, that have hunger and other meters
+
+

@@ -14,6 +14,37 @@ public class Game {
 	}
 	
 	static int money = 10;
+	/*
+	 * Health. Max = 100, min = 0 
+	 * If health is at 0 player dies.. Tough shit, right?
+	 * 
+	 * Health goes down if you haven't eaten and or drank anything 
+	 * for a while. It also goes down if you are unhappy, or tired
+	 */
+	static int health = 100;
+	
+	/*
+	 * Fatigue, it's in %. Once it reaches like 100%
+	 * your player will literally fall asleep on the floor and be unhappy
+	 * and stuff
+	 */
+	static int fatigue = 0;
+	
+	/*
+	 * Thirst is a % you can last 3 days maximum without drinking
+	 * but your health will go down if you don't drink at least once 
+	 * a day
+	 */
+	static int thirst = 0;
+	
+	/*
+	 * Hunger is a % you can survive for 10 days max without eating
+	 * but your health will go down if you don't eat at least once
+	 * a day
+	 */
+	static int hunger = 0;
+	
+	
 	
 	static boolean firstTime = true;
 	

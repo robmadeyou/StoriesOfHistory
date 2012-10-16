@@ -27,7 +27,10 @@ public class Save {
 		
 		Game.location = (String) save.readObject();
 		Game.money = (Integer) save.readObject();
-		
+		Game.health = (Integer) save.readObject();
+		Game.fatigue = (Integer) save.readObject();
+		Game.thirst = (Integer) save.readObject();
+		Game.hunger = (Integer) save.readObject();
 		
 		
 		Game.firstTime = (Boolean) save.readObject();
@@ -40,16 +43,11 @@ public class Save {
 		catch(Exception exc){
 		exc.printStackTrace(); // If there was an error, print the info.
 		}
-
-		// Print the values, to see that they've been recovered.
-		System.out.println();
-
-		// All done.
 	}
 	
 	public static void saveGame(){
 		try{  // Catch errors in I/O if necessary.
-		// Open a file to write to, named SavedObj.sav.
+		// Open a file to write to, named save.sav.
 		loaded = true;
 		FileOutputStream saveFile=new FileOutputStream("res\\save\\save.sav");
 
@@ -65,8 +63,15 @@ public class Save {
 		save.writeObject(StateGame.gender);
 		save.writeObject(StateGame.name);
 		
+		
+		//Player variables IMPORTANTES!
 		save.writeObject(Game.location);
 		save.writeObject(Game.money);
+		save.writeObject(Game.health);
+		save.writeObject(Game.fatigue);
+		save.writeObject(Game.thirst);
+		save.writeObject(Game.hunger);
+		
 		
 		
 		save.writeObject(Game.firstTime);

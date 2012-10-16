@@ -58,45 +58,45 @@ public class Screen {
 	}
 	public static void chatDisplay(){
 		Fonts.color = c21;
-		Fonts.chat.drawString(0, 0, t21);
+		Fonts.chat.drawString(0, 40, t21);
 		Fonts.color = c20;
-		Fonts.chat.drawString(0, 20, t20);
+		Fonts.chat.drawString(0, 60, t20);
 		Fonts.color = c19;
-		Fonts.chat.drawString(0, 40, t19);
+		Fonts.chat.drawString(0, 80, t19);
 		Fonts.color = c18;
-		Fonts.chat.drawString(0, 60, t18);
+		Fonts.chat.drawString(0, 100, t18);
 		Fonts.color = c17;
-		Fonts.chat.drawString(0, 80, t17);
+		Fonts.chat.drawString(0, 120, t17);
 		Fonts.color = c16;
-		Fonts.chat.drawString(0, 100, t16);
+		Fonts.chat.drawString(0, 140, t16);
 		Fonts.color = c15;
-		Fonts.chat.drawString(0, 120, t15);
+		Fonts.chat.drawString(0, 160, t15);
 		Fonts.color = c14;
-		Fonts.chat.drawString(0, 140, t14);
+		Fonts.chat.drawString(0, 180, t14);
 		Fonts.color = c13;
-		Fonts.chat.drawString(0, 160, t13);
+		Fonts.chat.drawString(0, 200, t13);
 		Fonts.color = c12;
-		Fonts.chat.drawString(0, 180, t12);
+		Fonts.chat.drawString(0, 220, t12);
 		Fonts.color = c11;
-		Fonts.chat.drawString(0, 200, t11);
+		Fonts.chat.drawString(0, 240, t11);
 		Fonts.color = c10;
-		Fonts.chat.drawString(0, 220, t10);
+		Fonts.chat.drawString(0, 260, t10);
 		Fonts.color = c9;
-		Fonts.chat.drawString(0, 240, t9);
+		Fonts.chat.drawString(0, 280, t9);
 		Fonts.color = c8;
-		Fonts.chat.drawString(0, 260, t8);
+		Fonts.chat.drawString(0, 300, t8);
 		Fonts.color = c7;
-		Fonts.chat.drawString(0, 280, t7);
+		Fonts.chat.drawString(0, 320, t7);
 		Fonts.color = c6;
-		Fonts.chat.drawString(0, 300, t6);
+		Fonts.chat.drawString(0, 340, t6);
 		Fonts.color = c5;
-		Fonts.chat.drawString(0, 320, t5);
+		Fonts.chat.drawString(0, 360, t5);
 		Fonts.color = c4;
-		Fonts.chat.drawString(0, 340, t4);
+		Fonts.chat.drawString(0, 380, t4);
 		Fonts.color = c3;
-		Fonts.chat.drawString(0, 360, t3);
+		Fonts.chat.drawString(0, 400, t3);
 		Fonts.color = c2;
-		Fonts.chat.drawString(0, 380, t2);
+		Fonts.chat.drawString(0, 420, t2);
 	}
 	public static void chatUpdate(String text){
 		t21 = t20;
@@ -128,8 +128,12 @@ public class Screen {
 		chatUpdate(text);
 	}
 	static void variableDraw(){
-		Fonts.variables.drawString(0, 400, "Location: " + Game.location);
+		Fonts.variables.drawString(0, 0, "Location: " + Game.location);
 		Game.money ++;
-		Fonts.variables.drawString(0, 415, "Money: " + Game.money + " coins");
+		Fonts.variables.drawString(0, 15, "Money: " + Game.money + " coins");
+		Fonts.variables.drawString(150, 0, "Health: " + Game.health);
+		Fonts.variables.drawString(150, 15, "Fatigue: " + Game.fatigue + "%");
+		Fonts.variables.drawString(300, 0, "Hunger: " + Game.hunger + "%");
+		Fonts.variables.drawString(300, 15, "Thirst: " + Game.thirst + "%");
 	}
 }
