@@ -9,6 +9,7 @@ public class Input {
 			backspacePressed();
 			bPressed();
 			getCommand();
+			spacePressed();
 		}
 	}
 	
@@ -16,6 +17,13 @@ public class Input {
 		if(Keyboard.getEventKeyState()){
 			if(Keyboard.isKeyDown(Keyboard.KEY_BACK)){
 				Main.command = "";
+			}
+		}
+	}
+	public static void spacePressed(){
+		if(Keyboard.getEventKeyState()){
+			if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
+				Main.command += " ";
 			}
 		}
 	}

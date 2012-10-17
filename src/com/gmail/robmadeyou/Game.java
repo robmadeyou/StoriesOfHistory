@@ -43,24 +43,77 @@ public class Game {
 	 * a day
 	 */
 	static int hunger = 0;
+	/*
+	 * Mood will change through the game, depending on the things you do, the things
+	 * you like doing will boost up your mood, but things that you
+	 * Moods are:
+	 * happy
+	 * sad
+	 * satisfied
+	 * indifferent
+	 * grumpy
+	 */
+	static String mood = "happy";
 	
+	static String moodTranslated(){
+		if(mood == "happy"){
+			return "Happy";
+		}else if(mood == "sad"){
+			return "Sad";
+		}else if(mood == "satisfied"){
+			return "Satisfied";
+		}else if(mood == "indifferent"){
+			return "Indifferent";
+		}else if(mood == "grumpy"){
+			return "Grumpy";
+		}
+		return "null";
+	}
 	
+	/*
+	 * It has come to time.. This variable will check the Ticks in game for Time :p
+	 * 28,800 ticks for a full day
+	 */
+	static int time = 0;
 	
+	static int timeMinute(){
+		
+		return (time / 2) / 10;
+	}
 	static boolean firstTime = true;
-	
+	//Chat Loaded booleans.. I'm silly I know :(
+	static boolean firstTimeChat1 = false;
 	public static void onUpdate(){
+		timeUpdate();
 		if(location.equals("HOUSE")){
 			if(Input.isCommand("save")){
 				firstTime = false;
 				Save.saveGame();
 			}
 			if(firstTime){
-				Screen.chatBasic("-----Welcome to your life-----");
-				Screen.chatBasic("From here on, you will start your life as a new person. Changing everything that");
-				Screen.chatBasic("was; and changing what will be. Will you end up a big shot? Or live your life alone...");
-				Screen.chatBasic("It's your time to decide.");
-				Screen.chatBasic("(type \"inspect\" to check around your house");
+				if(!firstTimeChat1){
+					Screen.chatBasic("-----Welcome to your life-----");
+					Screen.chatBasic("From here on, you will start your life as a new person. Changing everything that");
+					Screen.chatBasic("was; and changing what will be. Will you end up a big shot? Or live your life alone...");
+					Screen.chatBasic("It's your time to decide.");
+					Screen.chatBasic("(type \"look around\" to check around your house");
+					firstTimeChat1 = true;
+				}
+				if(Input.isCommand("look around")){
+					Screen.chatBasic("--You look around the room--");
+					Screen.chatBasic("There is a NOTE on the table");
+					Screen.chatBasic("(the words that are in uppercase are commands, type the object to interact with it)");
+				}
+				if(Input.isCommand("note")){
+					Screen.chatBasic("--You pick up the note--");
+					Screen.chatBasic("It's written: " + StateGame.name + ", congratulations on passing your tests");
+				}
 			}
 		}
+	}
+	public static void timeUpdate(){
+		time++;
+		
+		System.out.println(time);
 	}
 }

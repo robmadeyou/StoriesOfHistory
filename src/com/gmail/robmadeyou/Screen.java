@@ -48,13 +48,32 @@ public class Screen {
 	static Color c20 = java.awt.Color.WHITE;
 	static Color c21 = java.awt.Color.WHITE;
 	
+	static int cursorBlink = 0;
+	static String cursor = "";
+	
+	static String lastText = "";
+	public static void blink(){
+		
+		if(cursorBlink > 0 && cursorBlink < 50){
+			cursor = "";
+		}
+		if(cursorBlink > 50 && cursorBlink < 100){
+			cursor = "|";
+		}
+		if(cursorBlink > 100){
+			cursorBlink = 0;
+		}
+		cursorBlink++;
+	}
 	public static void update(){
+		blink();
 		chatDisplay();
 		commandLine();
 		variableDraw();
+		
 	}
 	public static void commandLine(){
-		Fonts.command.drawString(0, 460, " > "+ Main.command);
+		Fonts.command.drawString(0, 460, " > "+ Main.command + cursor);
 	}
 	public static void chatDisplay(){
 		Fonts.color = c21;
@@ -127,13 +146,24 @@ public class Screen {
 	public static void chatBasic(String text){
 		chatUpdate(text);
 	}
+	public static void chatSingle(String text){
+		if(text != lastText){
+			chatUpdate(text);
+			lastText = text;
+		}
+	}
+	public static void add(String text){
+		
+	}
 	static void variableDraw(){
 		Fonts.variables.drawString(0, 0, "Location: " + Game.location);
 		Game.money ++;
-		Fonts.variables.drawString(0, 15, "Money: " + Game.money + " coins");
+		Fonts.variables.drawString(0, 20, "Mood: " + Game.moodTranslated());
 		Fonts.variables.drawString(150, 0, "Health: " + Game.health);
-		Fonts.variables.drawString(150, 15, "Fatigue: " + Game.fatigue + "%");
+		Fonts.variables.drawString(150, 20, "Fatigue: " + Game.fatigue + "%");
 		Fonts.variables.drawString(300, 0, "Hunger: " + Game.hunger + "%");
-		Fonts.variables.drawString(300, 15, "Thirst: " + Game.thirst + "%");
+		Fonts.variables.drawString(300, 20, "Thirst: " + Game.thirst + "%");
+		Fonts.variables.drawString(450, 0, "Money: " + Game.money);
+		Fonts.variables.drawString(450, 20, "Time: " + Game.timeMinute());
 	}
 }

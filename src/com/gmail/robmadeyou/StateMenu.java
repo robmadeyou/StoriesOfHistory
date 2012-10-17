@@ -1,9 +1,12 @@
 package com.gmail.robmadeyou;
 
+import java.rmi.activation.ActivationGroupDesc.CommandEnvironment;
+
 import org.lwjgl.opengl.Display;
 
 public class StateMenu {
 	static boolean menuLoaded = false;
+	static boolean invalidAnswer = false;
 	public static void onUpdate(){
 		chat();
 		commandCheck();
@@ -42,6 +45,13 @@ public class StateMenu {
 		}else if(Input.isCommand("credits")){
 			State.state = "CREDITS";
 			menuLoaded = false;
+		}else if(!Input.isCommand("")){
+			if(!invalidAnswer){
+				Screen.chatBasic("Invalid answer. Please try again.");
+				Main.commandExecuted = "";
+				invalidAnswer = true;
+			}
 		}
+		invalidAnswer = false;
 	}
 }

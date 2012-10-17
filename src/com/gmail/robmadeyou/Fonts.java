@@ -29,6 +29,8 @@ public class Fonts {
     //Used for all the variables
     static UnicodeFont variables;
     
+    static UnicodeFont time;
+    
     
     //Colour initialization for chat strings
     public static java.awt.Color color = java.awt.Color.white;
