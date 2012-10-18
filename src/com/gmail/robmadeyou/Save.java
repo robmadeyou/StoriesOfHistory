@@ -32,6 +32,15 @@ public class Save {
 		Game.thirst = (Integer) save.readObject();
 		Game.hunger = (Integer) save.readObject();
 		
+		//Time is here!
+		
+		Game.time = (Integer) save.readObject();
+		Game.timeMinute = (Integer) save.readObject();
+		Game.timeHourRaw = (Integer) save.readObject();
+		Game.timeDayRaw = (Integer) save.readObject();
+		Game.timeMonthRaw = (Integer) save.readObject();
+		Game.timeYearRaw = (Integer) save.readObject();
+		
 		
 		Game.firstTime = (Boolean) save.readObject();
 		//Player's level's are here
@@ -72,7 +81,13 @@ public class Save {
 		save.writeObject(Game.thirst);
 		save.writeObject(Game.hunger);
 		
-		
+		//Time variables VERY IMPROTANTES!
+		save.writeObject(Game.time);
+		save.writeObject(Game.timeMinute);
+		save.writeObject(Game.timeHourRaw);
+		save.writeObject(Game.timeDayRaw);
+		save.writeObject(Game.timeMonthRaw);
+		save.writeObject(Game.timeYearRaw);
 		
 		save.writeObject(Game.firstTime);
 		//Player levels are under here

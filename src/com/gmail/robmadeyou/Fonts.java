@@ -57,7 +57,7 @@ public class Fonts {
     static void textBox(){
     	java.awt.Font awtFont = new java.awt.Font("Times Roman", 0,16);
         chat = new UnicodeFont(awtFont);
-        chat.getEffects().add(new ColorEffect(color));
+        chat.getEffects().add(new ColorEffect(java.awt.Color.LIGHT_GRAY));
         chat.addAsciiGlyphs();
     	try {
             chat.loadGlyphs();
@@ -68,7 +68,7 @@ public class Fonts {
     static void variableList(){
     	java.awt.Font awtFont = new java.awt.Font("Times Roman", 0,16);
         variables = new UnicodeFont(awtFont);
-        variables.getEffects().add(new ColorEffect(java.awt.Color.RED));
+        variables.getEffects().add(new ColorEffect(java.awt.Color.WHITE));
         variables.addAsciiGlyphs();
     	try {
             variables.loadGlyphs();

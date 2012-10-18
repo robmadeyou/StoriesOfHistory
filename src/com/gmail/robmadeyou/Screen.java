@@ -50,15 +50,21 @@ public class Screen {
 	
 	static int cursorBlink = 0;
 	static String cursor = "";
+	static String timeCursor = "";
 	
 	static String lastText = "";
+	
+	static String zero1 = "";
+	static String zero2 = "";
 	public static void blink(){
 		
 		if(cursorBlink > 0 && cursorBlink < 50){
 			cursor = "";
+			timeCursor = "";
 		}
 		if(cursorBlink > 50 && cursorBlink < 100){
 			cursor = "|";
+			timeCursor = ":";
 		}
 		if(cursorBlink > 100){
 			cursorBlink = 0;
@@ -156,14 +162,26 @@ public class Screen {
 		
 	}
 	static void variableDraw(){
-		Fonts.variables.drawString(0, 0, "Location: " + Game.location);
-		Game.money ++;
+		Fonts.variables.drawString(0, 0, "Location: " + Game.pLocation());
 		Fonts.variables.drawString(0, 20, "Mood: " + Game.moodTranslated());
-		Fonts.variables.drawString(150, 0, "Health: " + Game.health);
-		Fonts.variables.drawString(150, 20, "Fatigue: " + Game.fatigue + "%");
-		Fonts.variables.drawString(300, 0, "Hunger: " + Game.hunger + "%");
-		Fonts.variables.drawString(300, 20, "Thirst: " + Game.thirst + "%");
-		Fonts.variables.drawString(450, 0, "Money: " + Game.money);
-		Fonts.variables.drawString(450, 20, "Time: " + Game.timeMinute());
+		Fonts.variables.drawString(190, 0, "Health: " + Game.health);
+		Fonts.variables.drawString(190, 20, "Fatigue: " + Game.fatigue + "%");
+		Fonts.variables.drawString(340, 0, "Hunger: " + Game.hunger + "%");
+		Fonts.variables.drawString(340, 20, "Thirst: " + Game.thirst + "%");
+		Fonts.variables.drawString(490, 0, "Money: " + Game.money);
+		if(Game.timeHour < 10){
+			zero1 = "0";
+		}else{
+			zero1 = "";
+		}
+		if(Game.timeMinute < 10){
+			zero2 = "0";
+		}else{
+			zero2 = "";
+		}
+		Fonts.variables.drawString(490, 20, "Time: " + zero1 + Game.timeHour);
+		Fonts.variables.drawString(550, 20, timeCursor);
+		Fonts.variables.drawString(555, 20, "" + zero2 + Game.timeMinute);
+		Fonts.variables.drawString(0, 22, "________________________________________________________________________");
 	}
 }
